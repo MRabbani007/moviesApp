@@ -13,7 +13,6 @@ import AppRouter from "./AppRouter";
 function App() {
   return (
     <>
-      <div>hello</div>
       {/* <Navbar /> */}
       <AppRouter />
     </>
