@@ -10,8 +10,8 @@ import MainPage from "./MainPage";
 const AppRouter = () => {
   return (
     <Routes>
-      <Route path="/" element={<MainPage />}></Route>
-      <Route path="/movies" element={<Movies />}></Route>
+      <Route path="/moviesApp/" element={<MainPage />}></Route>
+      <Route path="/moviesApp/movies" element={<Movies />}></Route>
     </Routes>
   );
 };
