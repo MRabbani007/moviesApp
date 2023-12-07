@@ -11,9 +11,6 @@ import MoviePortrait from "./MoviePortrait";
 import { SlArrowLeft } from "react-icons/sl";
 import { SlArrowRight } from "react-icons/sl";
 
-// Imported Media
-import image2 from "../assets/image2.jpg";
-
 function handleScroll() {}
 
 const Section = ({ title, Movies }) => {
@@ -40,9 +37,9 @@ const Section = ({ title, Movies }) => {
   return (
     <div className="w-full">
       <div className="heading text-slate-50 md:text-2xl text-lg py-2 font-bold">
-        <span className="cursor-pointer w-full px-3 flex justify-between">
+        <span className="cursor-pointer w-full px-3 flex md:justify-start items-center justify-between">
           {title}
-          <SlArrowRight className="text-slate-50 text-xl font-bold mx-2" />
+          <SlArrowRight className="text-slate-50 icon font-[900] mx-2" />
         </span>
       </div>
       <Carousel
@@ -52,8 +49,8 @@ const Section = ({ title, Movies }) => {
         itemClass="flex justify-center items-center p-0 gap-0"
         containerClass="w-full"
       >
-        {Movies.map((movie) => {
-          return <MoviePortrait movie={movie} />;
+        {Movies.map((movie, index) => {
+          return <MoviePortrait movie={movie} key={index} />;
         })}
       </Carousel>
     </div>

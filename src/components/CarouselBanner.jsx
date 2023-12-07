@@ -82,12 +82,12 @@ const CarouselBanner = () => {
           </div>
         </Carousel>
         <div className="w-[90%] flex flex-wrap md:justify-between justify-center mx-auto my-5 text-slate-300 text-center">
-          <div className="md:w-[48%] w-[80%] min-w-[200px] bg-indigo-900 rounded-lg my-1 p-4 hover:bg-indigo-800 duration-500 flex justify-center items-center">
-            <img src={lightning} alt="" className="mr-3 w-[30px]" />
+          <div className="md:w-[48%] w-[80%] min-w-[200px] bg-indigo-900 rounded-lg my-1 p-2 hover:bg-indigo-800 duration-500 flex justify-center items-center">
+            <img src={lightning} alt="Lightning" className="icon-lg" />
             30 Days Subscription Free
           </div>
-          <div className="md:w-[48%] w-[80%] min-w-[200px] bg-indigo-950 rounded-lg my-1 p-4 hover:bg-indigo-900 duration-500 flex justify-center items-center">
-            <img src={gift} alt="" className="mr-3 w-[60px]" />
+          <div className="md:w-[48%] w-[80%] min-w-[200px] bg-indigo-950 rounded-lg my-1 p-2 hover:bg-indigo-900 duration-500 flex justify-center items-center">
+            <img src={gift} alt="Gift" className="icon-lg" />
             Activate Certificate
           </div>
         </div>

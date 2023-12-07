@@ -42,3 +42,38 @@ body{
   right: 0;
   /* background-color: rgba(55, 72, 88, 0.904); */
 }
+
+.icon{
+  display: inline;
+  width: 20px;
+  height: 20px;
+  margin: 0 10px;
+}
+
+.icon-lg{
+  display: inline;
+  width: 30px;
+  height: 30px;
+  margin: 0 10px;
+}
+
+.bell:hover {
+  animation-name: shake;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes shake {
+  0% {
+    transform: rotate(0);
+  }
+  30% {
+    transform: rotate(30deg);
+  }
+  60% {
+    transform: rotate(-30deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}

@@ -8,12 +8,24 @@ import Footer from "./components/Footer";
 import MainPage from "./MainPage";
 
 const AppRouter = () => {
-  return (
-    <Routes>
-      <Route path="/moviesApp/" element={<MainPage />}></Route>
-      <Route path="/moviesApp/movies" element={<Movies />}></Route>
-    </Routes>
-  );
+  // change app routes, true for deployed, false for development
+  const appStatus = true;
+
+  if (appStatus) {
+    return (
+      <Routes>
+        <Route path="/moviesApp/" element={<MainPage />}></Route>
+        <Route path="/moviesApp/movies" element={<Movies />}></Route>
+      </Routes>
+    );
+  } else {
+    return (
+      <Routes>
+        <Route path="/" element={<MainPage />}></Route>
+        <Route path="/movies" element={<Movies />}></Route>
+      </Routes>
+    );
+  }
 };
 
 export default AppRouter;

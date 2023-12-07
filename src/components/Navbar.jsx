@@ -51,14 +51,14 @@ const Navbar = () => {
             Watch 30 Days Free
           </button>
           <button className="mx-2">
-            <FaSearch className="inline mx-2" />
+            <FaSearch className="icon" />
             Search
           </button>
           <button className="mx-2">
-            <FaRegBell />
+            <FaRegBell className="icon bell" />
           </button>
           <button className="mx-2 p-1 bg-slate-600 rounded-md flex items-center">
-            <FaRegUser className="inline mx-2 text-3xl p-1 bg-slate-500 text-white rounded-md" />
+            <FaRegUser className="icon text-white rounded-md" />
             <span className="text-white p-1">SignIn</span>
           </button>
         </div>
@@ -69,19 +69,19 @@ const Navbar = () => {
 
         <div className="w-full h-[70px] p-3 bg-slate-950 md:hidden flex justify-between items-center fixed bottom-0 left-0 right-0">
           <p className="text-slate-300 cursor-pointer">
-            <IoHomeOutline className="text-3xl text-slate-300 mx-2" />
+            <IoHomeOutline className="text-3xl  mx-2" />
             My ivi
           </p>
           <p className="text-slate-300 cursor-pointer">
-            <MdOutlineOndemandVideo className="text-3xl text-slate-300 mx-2" />
+            <MdOutlineOndemandVideo className="text-3xl mx-2" />
             Watch
           </p>
           <p className="text-slate-300 cursor-pointer">
-            <IoSearchSharp className="text-3xl text-slate-300 mx-2" />
+            <IoSearchSharp className="text-3xl mx-2" />
             Search
           </p>
           <p className="text-slate-300 cursor-pointer">
-            <FaRegUser className="text-3xl text-slate-300 mx-2" />
+            <FaRegUser className="text-3xl mx-2" />
             Signin
           </p>
           <p className="text-slate-300 cursor-pointer">
