@@ -32,7 +32,7 @@ const CarouselBanner = () => {
   };
   return (
     <div className="bg-slate-900 w-full pt-[60px]">
-      <div className="p-5">
+      <div className="my-5">
         {/* <div className="flex justify-center">
           <div className="button-left w-[5%] h-auto bg-slate-800 mr-5 rounded-lg flex justify-center items-center text-4xl font-bold text-slate-50">
             <SlArrowLeft className="cursor-pointer" />
@@ -56,24 +56,24 @@ const CarouselBanner = () => {
           autoPlay={false}
           autoPlaySpeed={2000}
           transitionDuration={1500}
-          itemClass="h-[60vh]"
+          itemClass=""
           containerClass=""
         >
-          <div className="w-[85%] h-[100%] mx-auto rounded-xl border-[1px] border-slate-500">
+          <div className="w-[85%] h-[100%] mx-auto rounded-xl">
             <img
               src={movie1}
               alt=""
               className="w-[100%] h-[100%] object-fill rounded-xl"
             />
           </div>
-          <div className="w-[85%] h-[100%] mx-auto rounded-xl border-[1px] border-slate-500">
+          <div className="w-[85%] h-[100%] mx-auto rounded-xl">
             <img
               src={movie1}
               alt=""
               className="w-[100%] h-[100%] object-fill rounded-xl"
             />
           </div>
-          <div className="w-[85%] h-[100%] mx-auto rounded-xl border-[1px] border-slate-500">
+          <div className="w-[85%] h-[100%] mx-auto rounded-xl">
             <img
               src={movie1}
               alt=""
@@ -81,12 +81,12 @@ const CarouselBanner = () => {
             />
           </div>
         </Carousel>
-        <div className="w-[80%] flex justify-between mx-auto my-5 text-slate-300 text-center">
-          <div className="w-[50%] bg-indigo-900 rounded-lg p-4 mr-2 hover:bg-indigo-800 duration-500 flex justify-center items-center">
+        <div className="w-[90%] flex flex-wrap md:justify-between justify-center mx-auto my-5 text-slate-300 text-center">
+          <div className="md:w-[48%] w-[80%] min-w-[200px] bg-indigo-900 rounded-lg my-1 p-4 hover:bg-indigo-800 duration-500 flex justify-center items-center">
             <img src={lightning} alt="" className="mr-3 w-[30px]" />
             30 Days Subscription Free
           </div>
-          <div className="w-[50%] bg-indigo-950 rounded-lg p-4 ml-2 hover:bg-indigo-900 duration-500 flex justify-center items-center">
+          <div className="md:w-[48%] w-[80%] min-w-[200px] bg-indigo-950 rounded-lg my-1 p-4 hover:bg-indigo-900 duration-500 flex justify-center items-center">
             <img src={gift} alt="" className="mr-3 w-[60px]" />
             Activate Certificate
           </div>

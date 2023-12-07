@@ -35,10 +35,10 @@ body{
 
 .react-multiple-carousel__arrow--left{
   left: 0;
-  background-color: rgba(55, 72, 88, 0.904);
+  /* background-color: rgba(55, 72, 88, 0.904); */
 }
 
 .react-multiple-carousel__arrow--right{
   right: 0;
-  background-color: rgba(55, 72, 88, 0.904);
+  /* background-color: rgba(55, 72, 88, 0.904); */
 }

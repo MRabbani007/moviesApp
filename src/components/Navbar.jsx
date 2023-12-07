@@ -16,11 +16,11 @@ import logo from "../assets/logo.svg";
 
 const Navbar = () => {
   return (
-    <div className="w-screen h-[60px] bg-slate-950 text-gray-50 flex justify-between items-center fixed top-0 z-50 px-[5%]">
+    <div className="w-screen h-[60px] bg-slate-950 text-gray-50 flex justify-between items-center fixed top-0 z-50 sm:px-[5%] px-1">
       {/* <div className="dropdown relative"></div> */}
       <div className="flex items-center h-full">
         <img src={logo} alt="" className="w-[60px] mx-5" />
-        <ul className="flex h-full font-semibold justify-between items-center text-gray-400">
+        <ul className="navLinks hidden md:flex h-full font-semibold justify-between items-center text-gray-400">
           <li className="mx-2 cursor-pointer py-4 hover:text-white duration-700">
             <Link to="/">My ivi</Link>
           </li>
@@ -45,7 +45,7 @@ const Navbar = () => {
         </ul>
       </div>
 
-      <div className="flex items-center px-5">
+      <div className="hidden md:flex items-center">
         <button className="p-1 bg-red-500 rounded-lg">
           Watch 30 Days Free
         </button>
@@ -61,6 +61,10 @@ const Navbar = () => {
           <span className="text-white p-1">SignIn</span>
         </button>
       </div>
+
+      <button className="block md:hidden p-1 bg-red-500 rounded-lg w-fit">
+        Watch 30 Days Free
+      </button>
     </div>
   );
 };

@@ -14,57 +14,6 @@ import { SlArrowRight } from "react-icons/sl";
 // Imported Media
 import image2 from "../assets/image2.jpg";
 
-// const Movies = [
-//   {
-//     id: 1,
-//     name: "movie1",
-//     category: "cat1",
-//     year: "2023",
-//     rating: 6.5,
-//     image: image2,
-//   },
-//   {
-//     id: 2,
-//     name: "movie2",
-//     category: "cat1",
-//     year: "2023",
-//     rating: 6.5,
-//     image: image2,
-//   },
-//   {
-//     id: 3,
-//     name: "movie3",
-//     category: "cat1",
-//     year: "2023",
-//     rating: 6.5,
-//     image: image2,
-//   },
-//   {
-//     id: 4,
-//     name: "movie4",
-//     category: "cat1",
-//     year: "2023",
-//     rating: 6.5,
-//     image: image2,
-//   },
-//   {
-//     id: 5,
-//     name: "movie5",
-//     category: "cat1",
-//     year: "2023",
-//     rating: 6.5,
-//     image: image2,
-//   },
-//   {
-//     id: 6,
-//     name: "movie6",
-//     category: "cat1",
-//     year: "2023",
-//     rating: 6.5,
-//     image: image2,
-//   },
-// ];
-
 function handleScroll() {}
 
 const Section = ({ title, Movies }) => {
@@ -81,7 +30,7 @@ const Section = ({ title, Movies }) => {
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
-      items: 4,
+      items: 2,
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
@@ -90,35 +39,23 @@ const Section = ({ title, Movies }) => {
   };
   return (
     <div className="w-full">
-      <div className="heading text-slate-50 text-2xl py-2 font-bold">
-        <span className="cursor-pointer">
+      <div className="heading text-slate-50 md:text-2xl text-lg py-2 font-bold">
+        <span className="cursor-pointer w-full px-3 flex justify-between">
           {title}
-          <SlArrowRight className="text-slate-50 text-xl font-bold inline mx-2" />
+          <SlArrowRight className="text-slate-50 text-xl font-bold mx-2" />
         </span>
       </div>
-      <div className="container w-[95%] mx-auto relative">
-        {/* <div className="leftButton absolute left-0 top-[50%] bottom-[50%]">
-          <SlArrowLeft className="text-slate-50 text-2xl font-bold" />
-          {/* <MdKeyboardArrowLeft /> */}
-        {/* </div> */}
-        {/* <div className="subContainer relative flex flex-nowrap overflow-x-hidden w-[90%] mx-auto"> */}
-        <Carousel
-          responsive={responsive}
-          infinite={true}
-          centerMode={true}
-          itemClass="flex justify-center items-center p-0 gap-0"
-          containerClass="w-full"
-        >
-          {Movies.map((movie) => {
-            return <MoviePortrait movie={movie} />;
-          })}
-        </Carousel>
-        {/* </div> */}
-        {/* <div className="rightButton absolute right-0 top-[50%] bottom-[50%]">
-          <SlArrowRight className="text-slate-50 text-2xl font-bold" /> */}
-        {/* <MdOutlineKeyboardArrowRight /> */}
-        {/* </div> */}
-      </div>
+      <Carousel
+        responsive={responsive}
+        infinite={true}
+        centerMode={true}
+        itemClass="flex justify-center items-center p-0 gap-0"
+        containerClass="w-full"
+      >
+        {Movies.map((movie) => {
+          return <MoviePortrait movie={movie} />;
+        })}
+      </Carousel>
     </div>
   );
 };
