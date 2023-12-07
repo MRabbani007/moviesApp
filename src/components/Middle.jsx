@@ -104,7 +104,7 @@ const sectionTitles = [
   "Award Winning",
   "Best Thrillers",
   "Best Comedy",
-  "Watch Free0",
+  "Watch Free",
   "Coming Soon",
 ];
 
