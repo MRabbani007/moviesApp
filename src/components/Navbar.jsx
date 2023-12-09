@@ -1,10 +1,11 @@
 import React from "react";
-// Import Nav
-// import { Nav, NavLink, NavMenu } from "./NavbarElements";
+
 import { Link } from "react-router-dom";
 
 // Imported Components
 import DropdownMovies from "./DropdownMovies";
+import DropdownSeries from "./DropdownSeries";
+import DropdownCartoons from "./DropdownCartoons";
 
 // Imported Icons
 import { FaSearch, FaRegUser, FaRegBell } from "react-icons/fa";
@@ -34,11 +35,11 @@ const Navbar = () => {
             </li>
             <li className="dropdown-button mx-2 cursor-pointer py-4 hover:text-white duration-700 dropdown ">
               <Link to="/">Series</Link>
-              <DropdownMovies />
+              <DropdownSeries />
             </li>
             <li className="dropdown-button mx-2 cursor-pointer py-4 hover:text-white duration-700 dropdown ">
               <Link to="/">Cartoons</Link>
-              <DropdownMovies />
+              <DropdownCartoons />
             </li>
             <li className="mx-2 cursor-pointer py-4 hover:text-white duration-700">
               <Link to="/">TV Channels</Link>

@@ -43,21 +43,6 @@ const CarouselBanner = () => {
             return <Banner BannerImg={item.image} key={item.id} />;
           })}
         </MyCarousel>
-        {/* <div className="flex justify-center">
-          <div className="button-left w-[5%] h-auto bg-slate-800 mr-5 rounded-lg flex justify-center items-center text-4xl font-bold text-slate-50">
-            <SlArrowLeft className="cursor-pointer" />
-          </div>
-          <div className="w-[80%]">
-            <img
-              src={movie1}
-              alt=""
-              className="w-[100%] h-[100%] object-cover mx-auto"
-            />
-          </div>
-          <div className="button-right w-[5%] h-auto bg-slate-800 ml-5 rounded-lg flex justify-center items-center text-4xl font-bold text-slate-50">
-            <SlArrowRight className="cursor-pointer" />
-          </div>
-        </div> */}
         {/* <Carousel
           responsive={responsive}
           centerMode={false}

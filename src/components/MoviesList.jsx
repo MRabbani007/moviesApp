@@ -1,10 +1,11 @@
 // Imported Media
-import imgAvatar from "../assets/avatar.jpg";
+import imgAvatar1 from "../assets/avatar-2022.jpg";
+import imgAvatar2 from "../assets/avatar-2009.jpg";
 import imgAvengers1 from "../assets/avengers-2012.jpg";
 import imgAvengers2 from "../assets/avengers-2015.jpg";
 import imgAvengers3 from "../assets/avengers-2018.jpg";
 import imgAvengers4 from "../assets/avengers-2019.jpg";
-import imgHarryPotter1 from "../assets/harry-potter.jpg";
+import imgHarryPotter1 from "../assets/harry-potter-1.jpg";
 import imgHarryPotter2 from "../assets/harry-potter-2.jpg";
 import imgHulk from "../assets/hulk.jpg";
 import imgIronMan1 from "../assets/iron-man.jpg";
@@ -13,11 +14,21 @@ import imgIronMan2 from "../assets/iron-man-2.jpg";
 const MoviesList = [
   {
     id: 1,
+    name: "Avatar: The Way of Water",
+    category: "Sci-Fi",
+    year: "2022",
+    rating: 8.7,
+    time: 120,
+    image: imgAvatar1,
+  },
+  {
+    id: 11,
     name: "Avatar",
     category: "Sci-Fi",
-    year: "2023",
-    rating: 8.7,
-    image: imgAvatar,
+    year: "2009",
+    rating: 7.9,
+    time: 120,
+    image: imgAvatar2,
   },
   {
     id: 2,
@@ -26,6 +37,7 @@ const MoviesList = [
     category: "Action",
     year: "2012",
     rating: 6.5,
+    time: 120,
     image: imgAvengers1,
   },
   {
@@ -34,6 +46,7 @@ const MoviesList = [
     category: "Action",
     year: "2015",
     rating: 5.9,
+    time: 120,
     image: imgAvengers2,
   },
   {
@@ -42,6 +55,7 @@ const MoviesList = [
     category: "Action",
     year: "2018",
     rating: 5.9,
+    time: 120,
     image: imgAvengers3,
   },
   {
@@ -50,6 +64,7 @@ const MoviesList = [
     category: "Action",
     year: "2019",
     rating: 5.9,
+    time: 120,
     image: imgAvengers4,
   },
   {
@@ -58,6 +73,7 @@ const MoviesList = [
     category: "cat1",
     year: "2023",
     rating: 7.1,
+    time: 120,
     image: imgHarryPotter1,
   },
   {
@@ -66,6 +82,7 @@ const MoviesList = [
     category: "cat1",
     year: "2023",
     rating: 8.0,
+    time: 120,
     image: imgHarryPotter2,
   },
   {
@@ -74,6 +91,7 @@ const MoviesList = [
     category: "cat1",
     year: "2023",
     rating: 5.2,
+    time: 120,
     image: imgHulk,
   },
   {
@@ -82,6 +100,7 @@ const MoviesList = [
     category: "cat1",
     year: "2023",
     rating: 6.0,
+    time: 120,
     image: imgIronMan1,
   },
   {
@@ -90,6 +109,7 @@ const MoviesList = [
     category: "cat1",
     year: "2023",
     rating: 5.8,
+    time: 120,
     image: imgIronMan2,
   },
 ];

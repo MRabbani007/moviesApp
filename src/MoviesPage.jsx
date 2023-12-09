@@ -7,13 +7,15 @@ import Section from "./components/Section";
 import CarouselGenres from "./components/CarouselGenres";
 import Footer from "./components/Footer";
 import MoviesList from "./components/MoviesList";
+// Imported Media
+import BannerImg from "./assets/banner.jpg";
 
 const MoviesPage = () => {
   return (
     <div className="bg-slate-900 pt-[80px]">
       <Navbar />
-      <div className="px-[5%]">
-        <Banner />
+      <div className="px-[5%] pb-5">
+        <Banner BannerImg={BannerImg} />
         <MoviesHome />
         <Section title="Film Premiers" Movies={MoviesList} />
         <CarouselGenres />

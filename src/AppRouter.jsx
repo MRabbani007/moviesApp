@@ -2,18 +2,19 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 
 import Movies from "./MoviesPage";
-import App from "./App";
-import Middle from "./components/Middle";
-import Footer from "./components/Footer";
 import MainPage from "./MainPage";
 
 const AppRouter = () => {
   // change app routes, true for deployed, false for development
-  const appStatus = false;
+  const appStatus = true;
 
   if (appStatus) {
     return (
       <Routes>
+        {/* Routes for local run */}
+        <Route path="/" element={<MainPage />}></Route>
+        <Route path="/movies" element={<Movies />}></Route>
+        {/* Routes for deploy */}
         <Route path="/moviesApp/" element={<MainPage />}></Route>
         <Route path="/moviesApp/movies" element={<Movies />}></Route>
       </Routes>

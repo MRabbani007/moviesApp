@@ -5,7 +5,7 @@ import muted from "../assets/muted.png";
 
 const Footer = () => {
   return (
-    <div className="w-full h-full bg-slate-900 border-t-2 px-10 py-20">
+    <div className="w-full h-full bg-slate-900 border-t-2 px-10 py-5">
       <div className="footer flex md:flex-nowrap flex-wrap justify-center">
         <div className="about w-[25%] min-w-[250px] my-5 text-center">
           <h3 className="text-xl font-bold text-slate-50">About</h3>

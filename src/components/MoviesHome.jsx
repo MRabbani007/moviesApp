@@ -5,6 +5,7 @@ import "react-multi-carousel/lib/styles.css";
 // Imported Icons
 import { SlArrowDown } from "react-icons/sl";
 import { FaPlus, FaTimes } from "react-icons/fa";
+import MyCarousel from "./myCarousel";
 
 const listItems = [
   "2023",
@@ -72,13 +73,15 @@ const MoviesHome = () => {
       </Carousel> */}
       {/* Categories */}
       <div className="my-4 flex flex-wrap">
-        {listItems.map((item) => {
-          return (
-            <div className="bg-slate-700 rounded-2xl px-5 py-1 mx-2 my-2 w-fit text-slate-400 font-semibold cursor-pointer hover:text-slate-200 duration-500 text-center whitespace-nowrap">
-              {item}
-            </div>
-          );
-        })}
+        <MyCarousel>
+          {listItems.map((item) => {
+            return (
+              <div className="bg-slate-700 rounded-2xl px-5 py-1 mx-2 my-2 w-fit text-slate-400 font-semibold cursor-pointer hover:text-slate-200 duration-500 text-center whitespace-nowrap border-[1px] border-slate-400">
+                {item}
+              </div>
+            );
+          })}
+        </MyCarousel>
       </div>
       {/* Filters Block */}
       <div className="bg-slate-800 rounded-lg p-4 ">

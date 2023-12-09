@@ -37,14 +37,23 @@ const moviesCountry = [
   "Korean",
 ];
 
-const moviesYears = ["2023", "2022", "2021", "2020", "Earlier"];
+const moviesYears = [
+  "Movies 2023",
+  "Movies 2022",
+  "Movies 2021",
+  "Movies 2020",
+  "Earlier",
+];
 
 const moviesOptions = [
   "New Items",
   "Collections",
+  "IVI Rating",
   "Trailers",
   "What to see",
-  "New Subscriptions",
+  "Movies in HD",
+  "IVI's Choice",
+  "Newly added",
 ];
 
 const DropdownMovies = () => {
@@ -96,10 +105,13 @@ const DropdownMovies = () => {
         </div>
         {/* Dropdown Column */}
         <div className="py-4 px-[1rem] h-full">
-          <ul className="list-items border-l-2 px-5 font-light">
+          <ul className="list-items h-[50vh] border-l-[1px] font-light">
             {moviesOptions.map((option, index) => {
               return (
-                <li className="font-light hover:text-red-600" key={index}>
+                <li
+                  className="font-light hover:text-red-600 px-5 hover:border-l-2"
+                  key={index}
+                >
                   {option}
                 </li>
               );
@@ -113,6 +125,7 @@ const DropdownMovies = () => {
             alt=""
             className="w-[300px] h-[300px] object-cover"
           />
+          <div></div>
         </div>
       </div>
     </>

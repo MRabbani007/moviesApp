@@ -11,6 +11,10 @@
   outline: none;
 }
 
+html, body{
+  height: 100%;
+}
+
 body{
   font-family: 'Montserrat', sans-serif;
   /* font-family: 'Raleway', sans-serif; */
@@ -68,6 +72,12 @@ body{
   width: 30px;
   height: 30px;
   margin: 0 10px;
+}
+
+.imgDiv:hover .card-info{opacity: 1;}
+
+.imgDiv:hover .card-info:nth-child(2){
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.61),rgba(0, 0, 0, 0.856));
 }
 
 .bell:hover {
