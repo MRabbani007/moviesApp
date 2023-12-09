@@ -3,7 +3,7 @@ import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 // Imported Components
-import MyCarousel from "./myCarousel";
+import MyCarousel from "./MyCarousel";
 // Imported Icons
 import { RiEmotionSadLine, RiEmotionLaughLine } from "react-icons/ri";
 import { GiDistraction } from "react-icons/gi";

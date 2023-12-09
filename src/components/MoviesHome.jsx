@@ -5,7 +5,7 @@ import "react-multi-carousel/lib/styles.css";
 // Imported Icons
 import { SlArrowDown } from "react-icons/sl";
 import { FaPlus, FaTimes } from "react-icons/fa";
-import MyCarousel from "./myCarousel";
+import MyCarousel from "./MyCarousel";
 
 const listItems = [
   "2023",

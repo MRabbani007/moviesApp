@@ -10,7 +10,7 @@ import MoviePortrait from "./MoviePortrait";
 // Imported icons
 import { SlArrowLeft } from "react-icons/sl";
 import { SlArrowRight } from "react-icons/sl";
-import MyCarousel from "./myCarousel";
+import MyCarousel from "./MyCarousel";
 
 function handleScroll() {}
 
