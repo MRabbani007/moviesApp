@@ -4,10 +4,7 @@ import React from "react";
 const MoviePortrait = ({ movie }) => {
   let { id, name, category, rating, image } = movie;
   return (
-    <div
-      className="w-[240px] min-w-[200px] h-[400px] mx-2 my-0 overflow-hidden"
-      key={id}
-    >
+    <div className="mx-2" key={id}>
       <div className="imgDiv rounded-lg overflow-hidden">
         <img
           src={image}
@@ -25,7 +22,7 @@ const MoviePortrait = ({ movie }) => {
           </div>
           <div className="font-normal text-red-600">{category}</div>
         </div>
-        <div className="w-[18%] h-8 p-0 bg-slate-50 rounded-xl flex justify-center items-center">
+        <div className="w-[18%] h-8 p-0 text-slate-900 bg-slate-50 rounded-xl flex justify-center items-center">
           {rating}
         </div>
       </div>

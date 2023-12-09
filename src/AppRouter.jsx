@@ -9,7 +9,7 @@ import MainPage from "./MainPage";
 
 const AppRouter = () => {
   // change app routes, true for deployed, false for development
-  const appStatus = true;
+  const appStatus = false;
 
   if (appStatus) {
     return (

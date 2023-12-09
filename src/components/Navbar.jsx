@@ -47,7 +47,7 @@ const Navbar = () => {
         </div>
 
         <div className="hidden md:flex items-center">
-          <button className="p-1 bg-red-500 rounded-lg">
+          <button className="px-3 py-1 bg-red-500 rounded-lg">
             Watch 30 Days Free
           </button>
           <button className="mx-2">

@@ -1,10 +1,14 @@
 import React from "react";
-import BannerImg from "../assets/banner.jpg";
 
-const Banner = () => {
+const Banner = ({ BannerImg }) => {
   return (
-    <div className="w-[85%] mx-auto">
-      <img src={BannerImg} alt="" className="w-full h-full object-fill" />
+    <div className="w-full h-full">
+      {/* TODO: add subscribe button and rating */}
+      <img
+        src={BannerImg}
+        alt=""
+        className="w-full h-full object-fit mx-auto rounded-xl"
+      />
     </div>
   );
 };

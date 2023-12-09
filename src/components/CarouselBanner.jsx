@@ -2,6 +2,10 @@ import React from "react";
 // Import Carousel
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+// Imported Components
+import MyCarousel from "./myCarousel";
+import Banner from "./Banner";
+import MoviesBanner from "./MoviesBanner";
 // Imported Icons
 import { SlArrowLeft } from "react-icons/sl";
 import { SlArrowRight } from "react-icons/sl";
@@ -11,28 +15,34 @@ import lightning from "../assets/lightning.svg";
 import gift from "../assets/gift.svg";
 
 const CarouselBanner = () => {
-  const responsive = {
-    superLargeDesktop: {
-      // the naming can be any, depends on you.
-      breakpoint: { max: 4000, min: 3000 },
-      items: 1,
-    },
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 1,
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 1,
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1,
-    },
-  };
+  // const responsive = {
+  //   superLargeDesktop: {
+  //     // the naming can be any, depends on you.
+  //     breakpoint: { max: 4000, min: 3000 },
+  //     items: 1,
+  //   },
+  //   desktop: {
+  //     breakpoint: { max: 3000, min: 1024 },
+  //     items: 1,
+  //   },
+  //   tablet: {
+  //     breakpoint: { max: 1024, min: 464 },
+  //     items: 1,
+  //   },
+  //   mobile: {
+  //     breakpoint: { max: 464, min: 0 },
+  //     items: 1,
+  //   },
+  // };
+
   return (
     <div className="bg-slate-900 w-full pt-[60px]">
       <div className="my-5">
+        <MyCarousel itemClass={"w-full"}>
+          {MoviesBanner.map((item) => {
+            return <Banner BannerImg={item.image} key={item.id} />;
+          })}
+        </MyCarousel>
         {/* <div className="flex justify-center">
           <div className="button-left w-[5%] h-auto bg-slate-800 mr-5 rounded-lg flex justify-center items-center text-4xl font-bold text-slate-50">
             <SlArrowLeft className="cursor-pointer" />
@@ -48,7 +58,7 @@ const CarouselBanner = () => {
             <SlArrowRight className="cursor-pointer" />
           </div>
         </div> */}
-        <Carousel
+        {/* <Carousel
           responsive={responsive}
           centerMode={false}
           partialVisible={true}
@@ -80,7 +90,7 @@ const CarouselBanner = () => {
               className="w-[100%] h-[100%] object-fill rounded-xl"
             />
           </div>
-        </Carousel>
+        </Carousel> */}
         <div className="w-[90%] flex flex-wrap md:justify-between justify-center mx-auto my-5 text-slate-300 text-center">
           <div className="md:w-[48%] w-[80%] min-w-[200px] bg-indigo-900 rounded-lg my-1 p-2 hover:bg-indigo-800 duration-500 flex justify-center items-center">
             <img src={lightning} alt="Lightning" className="icon-lg" />

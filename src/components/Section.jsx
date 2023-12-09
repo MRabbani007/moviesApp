@@ -10,6 +10,7 @@ import MoviePortrait from "./MoviePortrait";
 // Imported icons
 import { SlArrowLeft } from "react-icons/sl";
 import { SlArrowRight } from "react-icons/sl";
+import MyCarousel from "./myCarousel";
 
 function handleScroll() {}
 
@@ -42,17 +43,16 @@ const Section = ({ title, Movies }) => {
           <SlArrowRight className="text-slate-50 icon font-[900] mx-2" />
         </span>
       </div>
-      <Carousel
-        responsive={responsive}
-        infinite={true}
-        centerMode={true}
-        itemClass="flex justify-center items-center p-0 gap-0"
-        containerClass="w-full"
+      <MyCarousel
+        // responsive={responsive}
+        // infinite={true}
+        // centerMode={true}
+        itemClass="w-fit"
       >
         {Movies.map((movie, index) => {
           return <MoviePortrait movie={movie} key={index} />;
         })}
-      </Carousel>
+      </MyCarousel>
     </div>
   );
 };
