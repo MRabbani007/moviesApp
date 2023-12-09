@@ -3,7 +3,7 @@ import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 // Imported Components
-import MyCarousel from "./myCarousel";
+import MyCarousel from "./MyCarousel";
 import Banner from "./Banner";
 import MoviesBanner from "./MoviesBanner";
 // Imported Icons
