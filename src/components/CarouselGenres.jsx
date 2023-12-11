@@ -42,7 +42,7 @@ const responsive = {
 
 const CarouselGenres = () => {
   return (
-    <div className="my-2">
+    <div className="my-2 w-full">
       <MyCarousel>
         <div className="bg-slate-800 rounded-lg p-4 text-slate-50 text-center mx-2">
           <RiEmotionSadLine className="block mx-auto my-1 text-4xl text-center" />

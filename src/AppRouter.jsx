@@ -1,8 +1,8 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 
-import Movies from "./MoviesPage";
-import MainPage from "./MainPage";
+import Movies from "./views/MoviesPage";
+import MainPage from "./views/MainPage";
 
 const AppRouter = () => {
   // change app routes, true for deployed, false for development
