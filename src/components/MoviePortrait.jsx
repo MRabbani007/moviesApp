@@ -11,8 +11,8 @@ import { FaRegBookmark } from "react-icons/fa6";
 const MoviePortrait = ({ movie }) => {
   let { id, name, category, rating, image, year, time } = movie;
   return (
-    <div className="mx-2" key={id}>
-      <div className="imgDiv w-[240px] h-[300px] rounded-lg overflow-hidden relative">
+    <div className="mx-2 w-[240px]" key={id}>
+      <div className="imgDiv h-[300px] rounded-lg overflow-hidden relative">
         <img
           src={image}
           alt=""
@@ -43,8 +43,10 @@ const MoviePortrait = ({ movie }) => {
           </p>
           <span title={year}>{year}</span>
           <span>, </span>
-          <span title={category}>{category}</span>
-          <p>{time + " minutes"}</p>
+          <span title={Array.isArray(category) ? category[0] : category}>
+            {Array.isArray(category) ? category[0] : category}
+          </span>
+          {time !== "" && <p>{time + " minutes"}</p>}
         </div>
       </div>
       <div className="infoDiv flex flex-nowrap whitespace-nowrap justify-between mt-2">
@@ -55,7 +57,13 @@ const MoviePortrait = ({ movie }) => {
           >
             {name}
           </div>
-          <div className="font-normal text-red-600">{category}</div>
+          <div className="font-normal text-red-600 text-ellipsis overflow-hidden ">
+            {Array.isArray(category)
+              ? category.map((cat) => {
+                  return cat + ", ";
+                })
+              : category}
+          </div>
         </div>
         {/* <div className="w-[18%] h-8 p-0 text-slate-900 bg-slate-50 rounded-xl flex justify-center items-center">
           {rating}

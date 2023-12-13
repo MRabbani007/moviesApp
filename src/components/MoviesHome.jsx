@@ -88,7 +88,7 @@ const MoviesHome = () => {
       </Carousel> */}
       {/* Categories */}
       <div className="my-4">
-        <MyCarousel>
+        {/* <MyCarousel>
           {listItems.map((item, index) => {
             return (
               <div
@@ -99,34 +99,34 @@ const MoviesHome = () => {
               </div>
             );
           })}
-        </MyCarousel>
+        </MyCarousel> */}
       </div>
       {/* Filters Block */}
       <div className="bg-slate-800 rounded-lg p-4 ">
         {/* Dropdowns */}
         <div className="flex flex-wrap justify-between text-slate-50 font-semibold">
-          <div className="bg-slate-700 p-4 w-full mx-2 my-2 flex justify-between cursor-pointer dropdown-small relative">
+          <div className="bg-slate-700 p-4 md:w-[18%] sm:w-[45%] w-full mx-2 my-2 flex justify-between cursor-pointer dropdown-small relative">
             <span>Genres</span>
-            <SlArrowDown className="text-slate-50 text-xl font-extrabold inline mx-2" />
+            <SlArrowDown className="text-slate-50 text-xl font-extrabold inline mx-2 z-10" />
             <DropdownMenu items={listGenres} />
           </div>
-          <div className="bg-slate-700 p-4 w-full mx-2 my-2 flex justify-between cursor-pointer">
+          <div className="bg-slate-700 p-4 md:w-[18%] sm:w-[45%] w-full mx-2 my-2 flex justify-between cursor-pointer">
             <span>SubGenres</span>
-            <SlArrowDown className="text-slate-50 text-xl font-extrabold inline mx-2" />
+            <SlArrowDown className="text-slate-50 text-xl font-extrabold inline mx-2 z-10" />
           </div>
-          <div className="bg-slate-700 p-4 w-full mx-2 my-2 flex justify-between cursor-pointer dropdown-small relative">
+          <div className="bg-slate-700 p-4 md:w-[18%] sm:w-[45%] w-full mx-2 my-2 flex justify-between cursor-pointer dropdown-small relative">
             <span>Countries</span>
-            <SlArrowDown className="text-slate-50 text-xl font-extrabold inline mx-2" />
+            <SlArrowDown className="text-slate-50 text-xl font-extrabold inline mx-2 z-10" />
             <DropdownMenu items={listCountries} />
           </div>
-          <div className="bg-slate-700 p-4 w-full mx-2 my-2 flex justify-between cursor-pointer dropdown-small relative">
+          <div className="bg-slate-700 p-4 md:w-[18%] sm:w-[45%] w-full mx-2 my-2 flex justify-between cursor-pointer dropdown-small relative">
             <span>Years</span>
-            <SlArrowDown className="text-slate-50 text-xl font-extrabold inline mx-2" />
+            <SlArrowDown className="text-slate-50 text-xl font-extrabold inline mx-2 z-10" />
             <DropdownMenu items={listYears} />
           </div>
-          <div className="bg-slate-700 p-4 w-full mx-2 my-2 flex justify-between cursor-pointer dropdown-small relative">
+          <div className="bg-slate-700 p-4 md:w-[18%] sm:w-[45%] w-full mx-2 my-2 flex justify-between cursor-pointer dropdown-small relative">
             <span>ivi Rating</span>
-            <SlArrowDown className="text-slate-50 text-xl font-extrabold inline mx-2" />
+            <SlArrowDown className="text-slate-50 text-xl font-extrabold inline mx-2 z-10" />
             <DropdownMenu items={listRatings} />
           </div>
         </div>
