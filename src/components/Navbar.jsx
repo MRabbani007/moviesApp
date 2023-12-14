@@ -79,7 +79,7 @@ const Navbar = () => {
           </p>
           <p className="text-slate-300 cursor-pointer">
             <MdOutlineOndemandVideo className="text-3xl mx-2" />
-            Watch
+            <Link to="/movies">Watch</Link>
           </p>
           <p className="text-slate-300 cursor-pointer">
             <IoSearchSharp className="text-3xl mx-2" />
