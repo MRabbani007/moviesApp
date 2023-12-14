@@ -12,8 +12,8 @@ const AppRouter = () => {
     return (
       <Routes>
         {/* Routes for local run */}
-        <Route path="/" element={<MainPage />}></Route>
-        <Route path="/movies" element={<Movies />}></Route>
+        {/* <Route path="/" element={<MainPage />}></Route>
+        <Route path="/movies" element={<Movies />}></Route> */}
         {/* Routes for deploy */}
         <Route path="/moviesApp/" element={<MainPage />}></Route>
         <Route path="/moviesApp/movies" element={<Movies />}></Route>

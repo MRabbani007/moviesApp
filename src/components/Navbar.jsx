@@ -25,25 +25,25 @@ const Navbar = () => {
           <img src={logo} alt="" className="w-[60px] lg:mx-5 mx-2" />
           <ul className="navLinks hidden lg:flex flex-nowrap xl:gap-2 2xl:gap-4 text-ellipsis overflow-hidden h-full font-semibold justify-between items-center  text-gray-400">
             <li className="mx-2 cursor-pointer py-4 hover:text-white duration-700">
-              <Link to="/">My ivi</Link>
+              <Link to="/moviesApp/">My ivi</Link>
             </li>
             <li className="mx-2 cursor-pointer py-4 hover:text-white duration-700">
-              <Link to="/">What's New</Link>
+              <Link to="/moviesApp/">What's New</Link>
             </li>
             <li className="dropdown-button mx-2 cursor-pointer py-4 hover:text-white duration-700 dropdown">
-              <Link to="/movies">Movies</Link>
+              <Link to="/moviesApp/movies">Movies</Link>
               <DropdownMovies />
             </li>
             <li className="dropdown-button mx-2 cursor-pointer py-4 hover:text-white duration-700 dropdown ">
-              <Link to="/">Series</Link>
+              <Link to="/moviesApp/">Series</Link>
               <DropdownSeries />
             </li>
             <li className="dropdown-button mx-2 cursor-pointer py-4 hover:text-white duration-700 dropdown ">
-              <Link to="/">Cartoons</Link>
+              <Link to="/moviesApp/">Cartoons</Link>
               <DropdownCartoons />
             </li>
             <li className="mx-2 cursor-pointer py-4 hover:text-white duration-700">
-              <Link to="/">TV Channels</Link>
+              <Link to="/moviesApp/">TV Channels</Link>
             </li>
           </ul>
         </div>
@@ -74,12 +74,16 @@ const Navbar = () => {
         {/* Menu for Small Screens */}
         <div className="w-full h-[70px] p-3 bg-slate-950 lg:hidden flex justify-between items-center fixed bottom-0 left-0 right-0">
           <p className="text-slate-300 cursor-pointer">
-            <IoHomeOutline className="text-3xl  mx-2" />
-            My ivi
+            <Link to="/moviesApp/">
+              <IoHomeOutline className="text-3xl  mx-2" />
+              My ivi
+            </Link>
           </p>
           <p className="text-slate-300 cursor-pointer">
-            <MdOutlineOndemandVideo className="text-3xl mx-2" />
-            <Link to="/movies">Watch</Link>
+            <Link to="/moviesApp/movies">
+              <MdOutlineOndemandVideo className="text-3xl mx-2" />
+              Watch
+            </Link>
           </p>
           <p className="text-slate-300 cursor-pointer">
             <IoSearchSharp className="text-3xl mx-2" />
