@@ -59,10 +59,9 @@ const MoviePortrait = ({ movie }) => {
           </div>
           <div className="font-normal text-red-600 text-ellipsis overflow-hidden ">
             {Array.isArray(category)
-              ? category.map((cat) => {
-                  return cat + ", ";
-                })
-              : category}
+              ? category[0]
+              : // .map((cat) => {return cat + ", ";})
+                category}
           </div>
         </div>
         {/* <div className="w-[18%] h-8 p-0 text-slate-900 bg-slate-50 rounded-xl flex justify-center items-center">

@@ -1,6 +1,7 @@
 import React from "react";
 
-const DropdownMenu = ({ items }) => {
+const DropdownMenu = ({ items, handledropdown }) => {
+  console.log(typeof handledropdown);
   return (
     <ul className="dropdown-menu-content bg-slate-700">
       {items.map((item, index) => {
@@ -8,6 +9,7 @@ const DropdownMenu = ({ items }) => {
           <li
             className="hover:text-slate-700 hover:bg-slate-300 duration-300 cursor-pointer p-2"
             key={index}
+            onClick={() => handledropdown(item)}
           >
             {item}
           </li>

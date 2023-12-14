@@ -8,6 +8,7 @@ import { FaPlus, FaTimes } from "react-icons/fa";
 // Imported Components
 import MyCarousel from "./MyCarousel";
 import DropdownMenu from "./DropdownMenu";
+import Genre from "./Genre";
 
 const listItems = [
   "2023",
@@ -60,55 +61,40 @@ const listCountries = [
 const listYears = ["2023", "2022", "2021", "2020", "Earlier"];
 const listRatings = ["8+", "6-8", "4-6"];
 
-const MoviesHome = () => {
+const MoviesHome = ({
+  CategoryAdd,
+  CategoryRemove,
+  handleMovieYear,
+  handleMovieGenre,
+  handleMovieCountry,
+  handleMovieRating,
+  genre,
+  value,
+}) => {
   return (
     <div className="movies-home py-5">
-      <h2 className="md:text-4xl text-2xl text-slate-300 font-extrabold">
+      <h2 className="md:text-4xl text-2xl text-slate-300 font-extrabold my-4">
         Watch Movies Online
       </h2>
-      {/* <Carousel
-        responsive={responsive}
-        centerMode={true}
-        partialVisible={false}
-        infinite={true}
-        autoPlay={false}
-        autoPlaySpeed={2000}
-        transitionDuration={1500}
-        itemClass="w-auto"
-        containerClass="h-[60px] w-[100%] px-[10%] flex justify-center gap-0"
-        className="my-4"
-      >
-        {listItems.map((item) => {
-          return (
-            <div className="bg-slate-700 rounded-2xl px-5 py-1 mx-2 my-2 w-fit text-slate-400 font-semibold cursor-pointer hover:text-slate-200 duration-500 text-center whitespace-nowrap">
-              {item}
-            </div>
-          );
-        })}
-      </Carousel> */}
       {/* Categories */}
-      <div className="my-4">
-        {/* <MyCarousel>
-          {listItems.map((item, index) => {
-            return (
-              <div
-                className="bg-slate-700 rounded-2xl px-5 py-1 mx-2 my-2 w-fit text-slate-400 font-semibold cursor-pointer hover:text-slate-200 duration-500 text-center whitespace-nowrap"
-                key={index}
-              >
-                {item}
-              </div>
-            );
-          })}
-        </MyCarousel> */}
-      </div>
       {/* Filters Block */}
       <div className="bg-slate-800 rounded-lg p-4 ">
+        {/* Genres */}
+        <Genre
+          CategoryAdd={CategoryAdd}
+          CategoryRemove={CategoryRemove}
+          genre={genre}
+          value={value}
+        />
         {/* Dropdowns */}
         <div className="flex flex-wrap justify-between text-slate-50 font-semibold">
           <div className="bg-slate-700 p-4 md:w-[18%] sm:w-[45%] w-full mx-2 my-2 flex justify-between cursor-pointer dropdown-small relative">
             <span>Genres</span>
             <SlArrowDown className="text-slate-50 text-xl font-extrabold inline mx-2 z-10" />
-            <DropdownMenu items={listGenres} />
+            <DropdownMenu
+              items={listGenres}
+              handledropdown={handleMovieGenre}
+            />
           </div>
           <div className="bg-slate-700 p-4 md:w-[18%] sm:w-[45%] w-full mx-2 my-2 flex justify-between cursor-pointer">
             <span>SubGenres</span>
@@ -117,17 +103,23 @@ const MoviesHome = () => {
           <div className="bg-slate-700 p-4 md:w-[18%] sm:w-[45%] w-full mx-2 my-2 flex justify-between cursor-pointer dropdown-small relative">
             <span>Countries</span>
             <SlArrowDown className="text-slate-50 text-xl font-extrabold inline mx-2 z-10" />
-            <DropdownMenu items={listCountries} />
+            <DropdownMenu
+              items={listCountries}
+              handledropdown={handleMovieCountry}
+            />
           </div>
           <div className="bg-slate-700 p-4 md:w-[18%] sm:w-[45%] w-full mx-2 my-2 flex justify-between cursor-pointer dropdown-small relative">
             <span>Years</span>
             <SlArrowDown className="text-slate-50 text-xl font-extrabold inline mx-2 z-10" />
-            <DropdownMenu items={listYears} />
+            <DropdownMenu items={listYears} handledropdown={handleMovieYear} />
           </div>
           <div className="bg-slate-700 p-4 md:w-[18%] sm:w-[45%] w-full mx-2 my-2 flex justify-between cursor-pointer dropdown-small relative">
             <span>ivi Rating</span>
             <SlArrowDown className="text-slate-50 text-xl font-extrabold inline mx-2 z-10" />
-            <DropdownMenu items={listRatings} />
+            <DropdownMenu
+              items={listRatings}
+              handledropdown={handleMovieRating}
+            />
           </div>
         </div>
         {/* Filters */}

@@ -8,7 +8,7 @@ const MainPage = () => {
   return (
     <>
       <Navbar />
-      <div className="sm:px-[5%] px-1 bg-slate-900">
+      <div className="lg:px-[5%] px-2 pb-5 bg-slate-900">
         <CarouselBanner />
         <Middle />
       </div>

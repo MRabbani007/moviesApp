@@ -19,11 +19,11 @@ import logo from "../assets/logo.svg";
 const Navbar = () => {
   return (
     <>
-      <div className="w-screen h-[60px] bg-slate-950 flex justify-between items-center fixed top-0 z-50 sm:px-[5%] px-1">
+      <div className="w-screen h-[60px] bg-slate-950 flex justify-between items-center fixed top-0 z-50 xl:px-[5%] px-1 lg:text-md text-sm">
         {/* Left Block */}
         <div className="flex items-center h-full">
-          <img src={logo} alt="" className="w-[60px] mx-5" />
-          <ul className="navLinks hidden md:flex flex-wrap h-full font-semibold justify-between items-center text-md text-gray-400">
+          <img src={logo} alt="" className="w-[60px] lg:mx-5 mx-2" />
+          <ul className="navLinks hidden lg:flex flex-nowrap xl:gap-2 2xl:gap-4 text-ellipsis overflow-hidden h-full font-semibold justify-between items-center  text-gray-400">
             <li className="mx-2 cursor-pointer py-4 hover:text-white duration-700">
               <Link to="/">My ivi</Link>
             </li>
@@ -50,7 +50,7 @@ const Navbar = () => {
 
         {/* Right Block */}
         <div className="hidden md:flex items-center ">
-          <button className="px-3 py-1 bg-red-500 rounded-lg text-slate-50">
+          <button className="px-3 py-1 bg-red-500 rounded-lg text-slate-50 text-ellipsis overflow-hidden whitespace-nowrap">
             Watch 30 Days Free
           </button>
           <button className="mx-2 text-slate-50">
@@ -72,7 +72,7 @@ const Navbar = () => {
         </button>
 
         {/* Menu for Small Screens */}
-        <div className="w-full h-[70px] p-3 bg-slate-950 md:hidden flex justify-between items-center fixed bottom-0 left-0 right-0">
+        <div className="w-full h-[70px] p-3 bg-slate-950 lg:hidden flex justify-between items-center fixed bottom-0 left-0 right-0">
           <p className="text-slate-300 cursor-pointer">
             <IoHomeOutline className="text-3xl  mx-2" />
             My ivi
