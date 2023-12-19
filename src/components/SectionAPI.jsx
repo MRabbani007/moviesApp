@@ -101,11 +101,11 @@ const MapGenres = (genres) => {
 };
 
 const MapGenreIDs = (genre) => {
-  let foundGenre = genreMap.find((element) => genre === element.name);
+  let foundGenre = genreMap.find((element) => genre == element.name);
   if (foundGenre !== null && foundGenre !== undefined) {
     return foundGenre.id;
   }
-  return null;
+  return "";
 };
 
 // Custome Hook for generating genre URL
@@ -120,8 +120,7 @@ const useGenre = (value) => {
 // **********
 const SectionAPI = ({ page, title, genreurl = "" }) => {
   const [moviesRecent, setMoviesRecent] = useState([]);
-  // Custom Hook to generate URL for fetching Genres
-  const [genreURL, setGenreURL] = useState(genreurl);
+  const [genreURL, setGenreURL] = useState(MapGenreIDs(genreurl));
   // Access key for movies API
   const Access_key = "feadd565ad23c93f098a091d56bf86f0";
   // variable to store URL for fetching movies

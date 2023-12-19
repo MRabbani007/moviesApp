@@ -18,7 +18,7 @@ const MoviePortrait = ({ movie }) => {
           alt=""
           className="object-fill w-[240px] h-[300px] rounded-lg"
         />
-        <div className="card-info absolute top-0 left-0 bottom-0 right-0 flex flex-col items-end gap-4 pt-4 pb-2 opacity-0">
+        <div className="card-info absolute top-0 left-0 bottom-0 right-0 flex flex-col items-end gap-4 pt-4 pb-2 opacity-0 text-slate-50">
           <FaRegBookmark
             className="icon-lg cursor-pointer"
             title="Watch Later"

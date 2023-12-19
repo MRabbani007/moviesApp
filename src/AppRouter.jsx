@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 
 import Movies from "./views/MoviesPage";
 import MainPage from "./views/MainPage";
+import SearchPage from "./views/SearchPage";
 
 const AppRouter = () => {
   // change app routes, true for deployed, false for development
@@ -17,6 +18,7 @@ const AppRouter = () => {
         {/* Routes for deploy */}
         <Route path="/moviesApp/" element={<MainPage />}></Route>
         <Route path="/moviesApp/movies" element={<Movies />}></Route>
+        <Route path="/moviesApp/search" element={<SearchPage />}></Route>
       </Routes>
     );
   } else {
