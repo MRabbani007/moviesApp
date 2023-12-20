@@ -4,6 +4,8 @@ import { Routes, Route } from "react-router-dom";
 import Movies from "./views/MoviesPage";
 import MainPage from "./views/MainPage";
 import SearchPage from "./views/SearchPage";
+import SigninPage from "./views/SigninPage";
+import SignupPage from "./views/SignupPage";
 
 const AppRouter = () => {
   // change app routes, true for deployed, false for development
@@ -19,6 +21,8 @@ const AppRouter = () => {
         <Route path="/moviesApp/" element={<MainPage />}></Route>
         <Route path="/moviesApp/movies" element={<Movies />}></Route>
         <Route path="/moviesApp/search" element={<SearchPage />}></Route>
+        <Route path="/moviesApp/signin" element={<SigninPage />}></Route>
+        <Route path="/moviesApp/signup" element={<SignupPage />}></Route>
       </Routes>
     );
   } else {

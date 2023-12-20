@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 // Imported Components
 import MoviePortrait from "../components/MoviePortrait";
 import Navbar from "../components/Navbar";
 // Imported Icons
-import { FaTimes } from "react-icons/fa";
+import { FaTimes, FaSearch } from "react-icons/fa";
 // Imported Media
 import noImage from "../assets/noposter.png";
+import Pagination from "../components/Pagination";
+import Genre from "../components/Genre";
 
 const genreMap = [
   {
@@ -100,12 +102,31 @@ const MapGenres = (genres) => {
   }
   return genreArray;
 };
+// Access key for movies API
+const Access_key = "feadd565ad23c93f098a091d56bf86f0";
 // URL for loading posters
 const img_300 = "https://image.tmdb.org/t/p/w300";
+
+// Custome Hook for generating genre URL
+const useGenre = (value) => {
+  if (value.length < 1) return "";
+  const GenreIds = value.map((g) => g.id);
+  const temp = GenreIds.reduce((acc, curr) => acc + "," + curr);
+  return temp;
+};
 
 const SearchPage = () => {
   const [movies, setMovies] = useState([]);
   const [query, setQuery] = useState("");
+  const [page, setPage] = useState(1);
+  const [language, setLanguage] = useState("en-US");
+  const [include, setInclude] = useState(false);
+  // used to store the non-selected genre values
+  const [genre, setGenre] = useState([]);
+  // used to store the selected genre values
+  const [value, setValue] = useState([]);
+  // Custom Hook to generate URL for fetching Genres
+  const [genreURL, setGenreURL] = useState(useGenre(""));
 
   const parseMovies = (movies) => {
     let result = [];
@@ -135,7 +156,7 @@ const SearchPage = () => {
     return result;
   };
 
-  const url = `https://api.themoviedb.org/3/search/movie?query="${query}"&include_adult=false&language=en-US&page=1`;
+  const url = `https://api.themoviedb.org/3/search/movie?query="${query}"&with_genres=${genreURL}&include_adult=${include}&language=${language}&page=${page}`;
   const options = {
     method: "GET",
     headers: {
@@ -144,33 +165,105 @@ const SearchPage = () => {
         "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmZWFkZDU2NWFkMjNjOTNmMDk4YTA5MWQ1NmJmODZmMCIsInN1YiI6IjY1Nzg2OGE4ZjA0ZDAxMDExZTBmYWViNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.i1CODTsIYh3_m6jRvhQmXECahHoRWYZ7fnGBIuCDQws",
     },
   };
-  fetch(url, options)
-    .then((res) => res.json())
-    .then((json) => {
-      setMovies(parseMovies(json.results));
-    })
-    .catch((err) => console.error("error:" + err));
+
+  const handlePage = async (displayPage) => {
+    setPage(displayPage);
+  };
+
+  const handleToggle = () => {
+    setInclude(!include);
+  };
+
+  const fetchMovies = () => {
+    fetch(url, options)
+      .then((res) => res.json())
+      .then((json) => {
+        setMovies(parseMovies(json.results));
+      })
+      .catch((err) => console.error("error:" + err));
+  };
+
+  useEffect(() => {
+    fetchMovies();
+  }, [query, page]);
+
+  //Adding a particular genre to the selected array
+  const CategoryAdd = (genres) => {
+    //first - select everything that's inside of values using the spread operator
+    //second - add those genres that are being sent from the non-selected arrays
+    setValue([...value, genres]);
+    //removing those genres from the non-selected array that have been added to the selected array.
+    setGenre(genre.filter((g) => g.id !== genres.id));
+    setGenreURL(useGenre([...value, genres]));
+  };
+
+  //removing a particular genre from the selected array
+  const CategoryRemove = (genres) => {
+    setValue(value.filter((g) => g.id !== genres.id));
+    setGenre([...genre, genres]);
+    setGenreURL(useGenre(value.filter((g) => g.id !== genres.id)));
+  };
+
+  const fetchGenre = async (type = "movie") => {
+    const data = await fetch(
+      `https://api.themoviedb.org/3/genre/${type}/list?api_key=${Access_key}&language=en-US`
+    );
+    const { genres } = await data.json();
+    setGenre(genres);
+  };
 
   return (
     <>
       <Navbar />
-      <div className="w-full min-h-screen pt-[80px] bg-slate-900">
+      {/* Container */}
+      <div className="w-full min-h-screen pt-[80px] pb-5 bg-slate-900">
+        {/* Search Input */}
         <div className="px-[10%] py-5">
-          <h2 className="text-3xl font-bold text-left pb-5 text-slate-50">
-            Search
-          </h2>
-          <input
-            type="text"
-            className="w-full text-lg px-4 py-2 text-slate-900"
-            placeholder="Films, Genres, Actors"
-            onChange={(event) => setQuery(event.target.value)}
-          />
+          <form
+            action=""
+            onSubmit={(event) => {
+              event.preventDefault();
+              fetchMovies();
+            }}
+          >
+            <h2 className="text-3xl font-bold text-left pb-5 text-slate-50">
+              Search
+            </h2>
+            <input
+              type="text"
+              className="w-full text-lg px-4 py-2 text-slate-900"
+              placeholder="Films, Genres, Actors"
+              onChange={(event) => setQuery(event.target.value)}
+              value={query}
+            />
+            <button className="text-slate-50">
+              <FaSearch className="inline" /> Search
+            </button>
+          </form>
         </div>
-        <div className="w-full min-h-screen flex flex-wrap justify-center">
+        {/* Genres */}
+        {/* <div className="flex flex-wrap px-[10%]">
+          <Genre
+            CategoryAdd={CategoryAdd}
+            CategoryRemove={CategoryRemove}
+            genre={genre}
+            value={value}
+          />
+        </div> */}
+        {/* Pagination */}
+        <Pagination
+          handlePage={handlePage}
+          activePage={page}
+          handleToggle={handleToggle}
+        />
+        {/* Search Results */}
+        <div className="w-full flex flex-wrap justify-center">
           {movies.map((movie, index) => {
             return <MoviePortrait movie={movie} key={index} />;
           })}
         </div>
+        {/* Pagination */}
+        <Pagination handlePage={handlePage} activePage={page} />
       </div>
     </>
   );

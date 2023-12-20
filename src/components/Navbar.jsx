@@ -94,8 +94,10 @@ const Navbar = () => {
             <FaRegBell className="icon bell text-slate-50" />
           </button>
           <button className="mx-2 p-1 bg-slate-600 rounded-md flex items-center dropdown-button">
-            <FaRegUser className="icon text-white rounded-md" />
-            <span className="text-white p-1">SignIn</span>
+            <Link to="/moviesApp/signin">
+              <FaRegUser className="icon text-white rounded-md" />
+              <span className="text-white p-1">SignIn</span>
+            </Link>
             <DropdownSignin />
           </button>
         </div>
@@ -120,12 +122,16 @@ const Navbar = () => {
             </Link>
           </p>
           <p className="text-slate-300 cursor-pointer">
-            <IoSearchSharp className="text-3xl mx-2" />
-            Search
+            <Link to="/moviesApp/search">
+              <IoSearchSharp className="text-3xl mx-2" />
+              Search
+            </Link>
           </p>
           <p className="text-slate-300 cursor-pointer">
-            <FaRegUser className="text-3xl mx-2" />
-            Signin
+            <Link to="/moviesApp/signin">
+              <FaRegUser className="text-3xl mx-2" />
+              Signin
+            </Link>
           </p>
           <p className="text-slate-300 cursor-pointer">
             <BsThreeDots className="text-3xl  mx-2" />
