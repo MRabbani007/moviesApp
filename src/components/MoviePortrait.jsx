@@ -11,12 +11,12 @@ import { FaRegBookmark } from "react-icons/fa6";
 const MoviePortrait = ({ movie }) => {
   let { id, name, category, rating, image, year, time } = movie;
   return (
-    <div className="mx-2 w-[240px]" key={id}>
+    <div className="mx-2 w-[220px]" key={id}>
       <div className="imgDiv h-[300px] rounded-lg overflow-hidden relative">
         <img
           src={image}
           alt=""
-          className="object-fill w-[240px] h-[300px] rounded-lg"
+          className="object-fill w-[220px] h-[300px] rounded-lg"
         />
         <div className="card-info absolute top-0 left-0 bottom-0 right-0 flex flex-col items-end gap-4 pt-4 pb-2 opacity-0 text-slate-50">
           <FaRegBookmark

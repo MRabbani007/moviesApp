@@ -8,6 +8,7 @@ import { FaTimes, FaSearch } from "react-icons/fa";
 import noImage from "../assets/noposter.png";
 import Pagination from "../components/Pagination";
 import Genre from "../components/Genre";
+import { json } from "react-router-dom";
 
 const genreMap = [
   {
@@ -120,13 +121,14 @@ const SearchPage = () => {
   const [query, setQuery] = useState("");
   const [page, setPage] = useState(1);
   const [language, setLanguage] = useState("en-US");
-  const [include, setInclude] = useState(false);
   // used to store the non-selected genre values
   const [genre, setGenre] = useState([]);
   // used to store the selected genre values
   const [value, setValue] = useState([]);
   // Custom Hook to generate URL for fetching Genres
   const [genreURL, setGenreURL] = useState(useGenre(""));
+
+  const [myMoviesList, setMyMoviesList] = useState([]);
 
   const parseMovies = (movies) => {
     let result = [];
@@ -156,7 +158,7 @@ const SearchPage = () => {
     return result;
   };
 
-  const url = `https://api.themoviedb.org/3/search/movie?query="${query}"&with_genres=${genreURL}&include_adult=${include}&language=${language}&page=${page}`;
+  const url = `https://api.themoviedb.org/3/search/movie?query="${query}"&with_genres=${genreURL}&include_adult=false&language=${language}&page=${page}`;
   const options = {
     method: "GET",
     headers: {
@@ -168,10 +170,6 @@ const SearchPage = () => {
 
   const handlePage = async (displayPage) => {
     setPage(displayPage);
-  };
-
-  const handleToggle = () => {
-    setInclude(!include);
   };
 
   const fetchMovies = () => {
@@ -186,6 +184,13 @@ const SearchPage = () => {
   useEffect(() => {
     fetchMovies();
   }, [query, page]);
+
+  useEffect(() => {
+    let moviesList = localStorage.getItem("moviesList");
+    if (moviesList) {
+      console.log(JSON.parse(moviesList));
+    }
+  });
 
   //Adding a particular genre to the selected array
   const CategoryAdd = (genres) => {
@@ -205,11 +210,13 @@ const SearchPage = () => {
   };
 
   const fetchGenre = async (type = "movie") => {
-    const data = await fetch(
-      `https://api.themoviedb.org/3/genre/${type}/list?api_key=${Access_key}&language=en-US`
-    );
-    const { genres } = await data.json();
-    setGenre(genres);
+    try {
+      const data = await fetch(
+        `https://api.themoviedb.org/3/genre/${type}/list?api_key=${Access_key}&language=en-US`
+      );
+      const { genres } = await data.json();
+      setGenre(genres);
+    } catch (error) {}
   };
 
   return (
@@ -229,16 +236,19 @@ const SearchPage = () => {
             <h2 className="text-3xl font-bold text-left pb-5 text-slate-50">
               Search
             </h2>
-            <input
-              type="text"
-              className="w-full text-lg px-4 py-2 text-slate-900"
-              placeholder="Films, Genres, Actors"
-              onChange={(event) => setQuery(event.target.value)}
-              value={query}
-            />
-            <button className="text-slate-50">
-              <FaSearch className="inline" /> Search
-            </button>
+            <div className="flex flex-nowrap">
+              <input
+                type="text"
+                className="w-full text-lg px-4 py-2 mr-4 text-slate-900"
+                placeholder="Search Movies"
+                onChange={(event) => setQuery(event.target.value)}
+                value={query}
+              />
+              <button className="text-slate-50 flex justify-center items-center border-[1px] px-4">
+                <FaSearch className="inline mr-2" />
+                <span>Search</span>
+              </button>
+            </div>
           </form>
         </div>
         {/* Genres */}
@@ -251,11 +261,7 @@ const SearchPage = () => {
           />
         </div> */}
         {/* Pagination */}
-        <Pagination
-          handlePage={handlePage}
-          activePage={page}
-          handleToggle={handleToggle}
-        />
+        <Pagination handlePage={handlePage} activePage={page} />
         {/* Search Results */}
         <div className="w-full flex flex-wrap justify-center">
           {movies.map((movie, index) => {

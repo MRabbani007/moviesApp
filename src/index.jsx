@@ -7,8 +7,7 @@ import { BrowserRouter } from "react-router-dom";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />{" "}
-      {/* The various pages will be displayed by the `Main` component. */}
+      <App />
     </BrowserRouter>
   </React.StrictMode>
 );

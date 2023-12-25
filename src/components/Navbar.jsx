@@ -47,7 +47,7 @@ const Navbar = () => {
           </Link>
           <ul className="navLinks hidden lg:flex flex-nowrap xl:gap-2 2xl:gap-4 text-ellipsis overflow-hidden h-full font-semibold justify-between items-center  text-gray-400">
             <li className="mx-2 cursor-pointer py-4 hover:text-white duration-700">
-              <Link to="/moviesApp/">My ivi</Link>
+              <Link to="/moviesApp/myivi">My ivi</Link>
             </li>
             <li className="mx-2 cursor-pointer py-4 hover:text-white duration-700">
               <Link to="/moviesApp/">What's New</Link>
@@ -110,7 +110,7 @@ const Navbar = () => {
         {/* Menu for Small Screens */}
         <div className="w-full h-[70px] p-3 bg-slate-950 lg:hidden flex justify-between items-center fixed bottom-0 left-0 right-0">
           <p className="text-slate-300 cursor-pointer">
-            <Link to="/moviesApp/">
+            <Link to="/moviesApp/myivi">
               <IoHomeOutline className="text-3xl  mx-2" />
               My ivi
             </Link>

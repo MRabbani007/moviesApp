@@ -171,7 +171,7 @@ const MoviesPage = () => {
       //   })
       //   .then(() => setState(dataJ.results));
     } catch (error) {
-      alert("Error Fetching Data", error);
+      // alert("Error Fetching Data", error);
     }
   };
 
@@ -212,11 +212,13 @@ const MoviesPage = () => {
   };
 
   const fetchGenre = async (type = "movie") => {
-    const data = await fetch(
-      `https://api.themoviedb.org/3/genre/${type}/list?api_key=${Access_key}&language=en-US`
-    );
-    const { genres } = await data.json();
-    setGenre(genres);
+    try {
+      const data = await fetch(
+        `https://api.themoviedb.org/3/genre/${type}/list?api_key=${Access_key}&language=en-US`
+      );
+      const { genres } = await data.json();
+      setGenre(genres);
+    } catch (error) {}
   };
 
   useEffect(() => {
