@@ -7,7 +7,7 @@ import {
 // Imported Media
 import Banner1 from "../assets/movie1.png";
 
-const MyCarousel = ({ children, itemClass }) => {
+const MyCarousel = ({ children, itemClass, containerClass }) => {
   // Reference to carousel container for scrolling
   const carouselCont = useRef(null);
   // Reference to carousel item
@@ -20,10 +20,13 @@ const MyCarousel = ({ children, itemClass }) => {
 
   return (
     // Main Container
-    <div className="w-full relative flex justify-center text-slate-200">
+    <div className="w-full h-fit relative flex justify-center text-slate-200">
       {/* Content */}
       <div
-        className="carouselContainer w-[90%] h-auto flex justify-start items-center overflow-x-scroll scroll-smooth"
+        className={
+          containerClass +
+          " carouselContainer w-[90%] flex justify-start items-center overflow-x-scroll scroll-smooth"
+        }
         ref={carouselCont}
       >
         {children &&

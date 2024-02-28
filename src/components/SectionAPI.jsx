@@ -118,7 +118,7 @@ const useGenre = (value) => {
 // **********
 // Component that loads page of 20 movies and displays in carousel
 // **********
-const SectionAPI = ({ page, title, genreurl = "" }) => {
+const SectionAPI = ({ page, title, genreurl = "", handleBookmark }) => {
   const [moviesRecent, setMoviesRecent] = useState([]);
   const [genreURL, setGenreURL] = useState(MapGenreIDs(genreurl));
   // Access key for movies API
@@ -186,9 +186,15 @@ const SectionAPI = ({ page, title, genreurl = "" }) => {
           <SlArrowRight className="text-slate-50 icon font-[900] mx-2" />
         </span>
       </div>
-      <MyCarousel itemClass="w-fit">
+      <MyCarousel itemClass="w-fit" containerClass={"gap-3"}>
         {myMovieList.map((movie, index) => {
-          return <MoviePortrait movie={movie} key={index} />;
+          return (
+            <MoviePortrait
+              movie={movie}
+              key={index}
+              handleBookmark={handleBookmark}
+            />
+          );
         })}
       </MyCarousel>
     </div>

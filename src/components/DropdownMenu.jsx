@@ -1,7 +1,6 @@
 import React from "react";
 
 const DropdownMenu = ({ items, handledropdown }) => {
-  console.log(typeof handledropdown);
   return (
     <ul className="dropdown-menu-content bg-slate-700">
       {items.map((item, index) => {

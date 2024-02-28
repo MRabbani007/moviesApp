@@ -7,8 +7,9 @@ import { IoDiamondOutline } from "react-icons/io5";
 import { TbCertificate2 } from "react-icons/tb";
 import { TbMessage2Code } from "react-icons/tb";
 import { MdOutlinePayments } from "react-icons/md";
+import { removeUser } from "../data/utils";
 
-const DropdownSignin = () => {
+const DropdownSignin = ({ userName, handleSignOut }) => {
   return (
     <div className="dropdown-content bg-slate-800 p-4 fixed top-[60px] left-[5%] right-[5%] overflow-hidden z-50 flex justify-between text-slate-500">
       <ul className="flex flex-wrap gap-3 w-full">
@@ -42,9 +43,16 @@ const DropdownSignin = () => {
         </li>
       </ul>
       <div className="w-[40%] flex flex-col justify-between border-l-[1px] border-slate-700 px-4">
-        <div className="bg-red-500 text-slate-100 py-2 px-6 rounded-xl whitespace-nowrap">
-          Login or Register
-        </div>
+        {userName === "" ? (
+          <div className="bg-red-500 text-slate-100 py-2 px-6 rounded-xl whitespace-nowrap">
+            Login or Register
+          </div>
+        ) : (
+          <div className="bg-red-500 text-slate-100 py-2 px-6 rounded-xl whitespace-nowrap">
+            Signout
+          </div>
+        )}
+
         <div className="text-left">
           <p>Settings</p>
           <p>Help</p>

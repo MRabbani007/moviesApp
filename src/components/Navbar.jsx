@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 // Imported Components
@@ -17,13 +17,14 @@ import { BsThreeDots } from "react-icons/bs";
 import logo from "../assets/logo.svg";
 import DropdownSignin from "./DropdownSignin";
 import DropdownSubscription from "./DropdownSubscription";
+import { loadUser } from "../data/utils";
 
 const Navbar = () => {
+  const [user, setUser] = useState("");
+
   const [menuSearchBtn, setMenuSearchBtn] = useState(false);
   const [menuSubBtn, setMenuSubBtn] = useState(false);
-  const handleMenuSearchBtn = () => {
-    menuSearchBtn ? setMenuSearchBtn(false) : setMenuSearchBtn(true);
-  };
+
   const openSearch = () => {
     setMenuSearchBtn(true);
   };
@@ -36,6 +37,16 @@ const Navbar = () => {
   const closeSubs = () => {
     setMenuSubBtn(false);
   };
+  const handleSignOut = () => {
+    removeUser();
+  };
+  // check if user signed in
+  useState(() => {
+    let signedInUser = loadUser();
+    if (!!signedInUser) {
+      setUser(signedInUser);
+    }
+  }, []);
 
   return (
     <>
@@ -96,9 +107,11 @@ const Navbar = () => {
           <button className="mx-2 p-1 bg-slate-600 rounded-md flex items-center dropdown-button">
             <Link to="/moviesApp/signin">
               <FaRegUser className="icon text-white rounded-md" />
-              <span className="text-white p-1">SignIn</span>
+              <span className="text-white p-1 w-[100px] text-ellipsis overflow-hidden">
+                {user !== "" && user !== "undefined" ? `${user}` : "SignIn"}
+              </span>
             </Link>
-            <DropdownSignin />
+            <DropdownSignin userName={user} />
           </button>
         </div>
 

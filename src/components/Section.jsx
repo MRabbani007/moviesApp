@@ -12,9 +12,7 @@ import { SlArrowLeft } from "react-icons/sl";
 import { SlArrowRight } from "react-icons/sl";
 import MyCarousel from "./MyCarousel";
 
-function handleScroll() {}
-
-const Section = ({ title, Movies }) => {
+const Section = ({ title, Movies, handleBookmark }) => {
   // Responsive object for Carousel
   const responsive = {
     superLargeDesktop: {
@@ -48,9 +46,16 @@ const Section = ({ title, Movies }) => {
         // infinite={true}
         // centerMode={true}
         itemClass="w-fit"
+        containerClass={"gap-3"}
       >
         {Movies.map((movie, index) => {
-          return <MoviePortrait movie={movie} key={index} />;
+          return (
+            <MoviePortrait
+              movie={movie}
+              key={index}
+              handleBookmark={handleBookmark}
+            />
+          );
         })}
       </MyCarousel>
     </div>

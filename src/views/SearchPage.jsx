@@ -120,6 +120,7 @@ const SearchPage = () => {
   const [movies, setMovies] = useState([]);
   const [query, setQuery] = useState("");
   const [page, setPage] = useState(1);
+  const [include, setInclude] = useState(false);
   const [language, setLanguage] = useState("en-US");
   // used to store the non-selected genre values
   const [genre, setGenre] = useState([]);
@@ -158,7 +159,7 @@ const SearchPage = () => {
     return result;
   };
 
-  const url = `https://api.themoviedb.org/3/search/movie?query="${query}"&with_genres=${genreURL}&include_adult=false&language=${language}&page=${page}`;
+  const url = `https://api.themoviedb.org/3/search/movie?query=${query}&with_genres=${genreURL}&include_adult=false&language=${language}&page=${page}`;
   const options = {
     method: "GET",
     headers: {
@@ -263,7 +264,7 @@ const SearchPage = () => {
         {/* Pagination */}
         <Pagination handlePage={handlePage} activePage={page} />
         {/* Search Results */}
-        <div className="w-full flex flex-wrap justify-center">
+        <div className="w-full flex flex-wrap justify-center gap-3">
           {movies.map((movie, index) => {
             return <MoviePortrait movie={movie} key={index} />;
           })}
