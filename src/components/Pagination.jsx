@@ -1,40 +1,66 @@
-import React from "react";
+import { useEffect, useState } from "react";
 
-const Pagination = ({ handlePage, pages = 6, activePage = 1 }) => {
-  let pagesArray = [];
-  for (let i = 1; i <= pages; i++) {
-    pagesArray.push(i);
-  }
+const Paginnation = ({ pages, activePage, handlePage }) => {
+  const [pagesArray, setPagesArray] = useState([1]);
+
+  const loadPagesArray = () => {
+    let tempArray = [];
+    for (let i = 1; i <= pages; i++) {
+      tempArray.push(i);
+    }
+    setPagesArray(tempArray);
+  };
+
+  const handlePrev = () => {
+    if (activePage > 1) {
+      handlePage(activePage - 1);
+    }
+  };
+
+  const handleNext = () => {
+    if (activePage < pages) {
+      handlePage(activePage + 1);
+    }
+  };
+
+  useEffect(() => {
+    loadPagesArray();
+  }, [pages]);
+
   return (
-    <ul className="min-h-[40px] text-slate-900 flex flex-wrap bg-slate-400 w-fit mx-auto my-10">
-      {/* <li className="py-2 px-2 border-[1px] border-slate-200">Previous</li> */}
+    <ul className="flex my-3 mx-auto w-fit paginnation">
+      <li className="min-w-[30px] text-center px-2 py-1 " onClick={handlePrev}>
+        Prev
+      </li>
       {pagesArray.map((page, index) => {
-        if (page === activePage)
+        if (page === activePage) {
           return (
             <li
-              className="py-2 px-3 border-[1px] border-red-600 text-red-600 cursor-pointer min-w-[40px] text-center"
-              onClick={() => handlePage(page)}
               key={index}
+              onClick={() => handlePage(page)}
+              className="min-w-[30px] text-center active-page px-2 py-1 "
             >
               {page}
             </li>
           );
-        return (
-          <li
-            className="py-2 px-2 border-[1px] border-slate-200 cursor-pointer min-w-[40px] text-center"
-            onClick={() => handlePage(page)}
-            key={index}
-          >
-            {page}
-          </li>
-        );
+        } else {
+          return (
+            <li
+              key={index}
+              onClick={() => handlePage(page)}
+              className="min-w-[30px] text-center px-2 py-1 "
+            >
+              {page}
+            </li>
+          );
+        }
       })}
-      {/* <li className="py-2 px-2 border-[1px] border-slate-200 min-w-[40px] text-center cursor-pointer">
-        ...
-      </li> */}
-      {/* <li className="py-2 px-3 border-[1px] border-slate-200">Next</li> */}
+      {/* <li className="min-w-[30px] text-center px-2 py-1 ">...</li> */}
+      <li className="min-w-[30px] text-center px-2 py-1 " onClick={handleNext}>
+        Next
+      </li>
     </ul>
   );
 };
 
-export default Pagination;
+export default Paginnation;

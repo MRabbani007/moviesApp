@@ -1,77 +1,48 @@
 import React, { useContext } from "react";
-import { FaBars } from "react-icons/fa6";
-import { IoAddCircleOutline, IoHomeOutline, IoMenu } from "react-icons/io5";
-import { TbReportAnalytics } from "react-icons/tb";
-import { GrTask } from "react-icons/gr";
-import { GrDocumentNotes } from "react-icons/gr";
+import { IoHomeOutline, IoSearchSharp } from "react-icons/io5";
 import { GlobalContext } from "../../context/GlobalState";
+import { Link } from "react-router-dom";
+import { MdOutlineOndemandVideo } from "react-icons/md";
+import { FaRegUser } from "react-icons/fa";
+import { BsThreeDots } from "react-icons/bs";
 
 const BottomMenu = () => {
   const { viewTab, setViewTab } = useContext(GlobalContext);
 
   return (
-    <div className="bottom-menu bg-zinc-950 text-zinc-300 px-3">
-      <span className="flex items-center">
-        <IoMenu
-          title="Show Lists"
-          className={
-            (viewTab === "user_lists" ? "text-yellow-500" : "") +
-            " icon mr-1 duration-500"
-          }
-          onClick={() => {
-            setViewTab("user_lists");
-          }}
-        />
-        {/* {viewTab === "user_lists" ? (
-          <span className="text-yellow-500">Lists</span>
-        ) : null} */}
-      </span>
-      <span className="flex items-center">
-        <IoAddCircleOutline
-          title="Add New List"
-          className={
-            (viewTab === "create_list" ? "text-yellow-500" : "") +
-            " icon mr-1 duration-500"
-          }
-          onClick={() => {
-            setViewTab("create_list");
-          }}
-        />
-        {/* {viewTab === "create_list" ? (
-          <span className="text-yellow-500">Create</span>
-        ) : null} */}
-      </span>
-      <span className="flex items-center">
-        <GrTask
-          title="Show Tasks"
-          className={
-            (viewTab === "tasks" ? "text-yellow-500" : "") +
-            " icon mr-1 duration-500"
-          }
-          onClick={() => {
-            setViewTab("tasks");
-          }}
-        />
-        {/* {viewTab === "tasks" ? (
-          <span className="text-yellow-500">Tasks</span>
-        ) : null} */}
-      </span>
-      <span className="flex items-center">
-        <GrDocumentNotes
-          title="Notes"
-          className={
-            (viewTab === "notes" ? "text-yellow-500" : "") +
-            " icon mr-1 duration-500"
-          }
-          onClick={() => {
-            setViewTab("notes");
-          }}
-        />
-        {/* {viewTab === "notes" ? (
-          <span className="text-yellow-500">Notes</span>
-        ) : null} */}
-      </span>
-    </div>
+    <>
+      {/* Menu for Small Screens */}
+      <div className="bottom-menu sm:hidden bg-zinc-950 text-zinc-300 px-3">
+        <p className="text-slate-300 cursor-pointer">
+          <Link to="/moviesApp/myivi">
+            <IoHomeOutline className="text-3xl  mx-2" />
+            My ivi
+          </Link>
+        </p>
+        <p className="text-slate-300 cursor-pointer">
+          <Link to="/moviesApp/movies">
+            <MdOutlineOndemandVideo className="text-3xl mx-2" />
+            Watch
+          </Link>
+        </p>
+        <p className="text-slate-300 cursor-pointer">
+          <Link to="/moviesApp/search">
+            <IoSearchSharp className="text-3xl mx-2" />
+            Search
+          </Link>
+        </p>
+        <p className="text-slate-300 cursor-pointer">
+          <Link to="/moviesApp/signin">
+            <FaRegUser className="text-3xl mx-2" />
+            Signin
+          </Link>
+        </p>
+        <p className="text-slate-300 cursor-pointer">
+          <BsThreeDots className="text-3xl  mx-2" />
+          More
+        </p>
+      </div>
+    </>
   );
 };
 

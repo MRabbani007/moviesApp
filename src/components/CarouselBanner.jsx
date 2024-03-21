@@ -36,8 +36,8 @@ const CarouselBanner = () => {
   // };
 
   return (
-    <div className="bg-slate-900 w-full pt-[60px]">
-      <div className="my-5">
+    <div className="bg-slate-900 w-full">
+      <div className="">
         <MyCarousel itemClass={"w-full"}>
           {MoviesBanner.map((item) => {
             return <Banner BannerImg={item.image} key={item.id} />;

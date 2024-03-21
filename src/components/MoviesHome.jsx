@@ -7,7 +7,7 @@ import { SlArrowDown } from "react-icons/sl";
 import { FaPlus, FaTimes } from "react-icons/fa";
 // Imported Components
 import MyCarousel from "./MyCarousel";
-import DropdownMenu from "./DropdownMenu";
+import DropdownMenu from "../features/navigation/DropdownMenu";
 import Genre from "./Genre";
 
 const listItems = [

@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 // Imported Components
-import Navbar from "../components/Navbar";
 import CarouselBanner from "../components/CarouselBanner";
-import Footer from "../components/Footer";
 import SectionAPI from "../components/SectionAPI";
 // Imported Data
 import { MoviesList } from "../data/MoviesData";
 import { fetchBookmark } from "../data/bookmarkFunctions";
 import { loadUser } from "../data/utils";
+import { GlobalContext } from "../context/GlobalState";
+import useAuth from "../hooks/useAuth";
 
 const categories = [
   "Action",
@@ -39,13 +39,10 @@ const sectionTitles = [
 const sectionCategories = ["Thriller", "Comedy"];
 
 const MainPage = () => {
-  const [userName, setUserName] = useState("");
-  useEffect(() => {
-    let data = loadUser();
-    if (!!data) {
-      setUserName(data);
-    }
-  }, []);
+  const { bookmarks } = useContext(GlobalContext);
+  const { auth } = useAuth();
+
+  useEffect(() => {}, [auth?.user]);
 
   const handleBookmark = async (movie) => {
     await fetchBookmark({
@@ -57,8 +54,7 @@ const MainPage = () => {
 
   return (
     <>
-      <Navbar />
-      <div className="lg:px-[5%] px-2 pb-5 bg-slate-900">
+      <div className="lg:px-[5%] px-2 py-5 pb-5 bg-slate-900">
         <CarouselBanner />
         <div className="w-full min-h-screen bg-slate-900">
           {sectionTitles.map((title, index) => {
@@ -66,6 +62,7 @@ const MainPage = () => {
               <SectionAPI
                 page={index + 1}
                 title={title}
+                genre={""}
                 key={index}
                 handleBookmark={handleBookmark}
               />
@@ -77,19 +74,13 @@ const MainPage = () => {
             <SectionAPI
               page={index + 1}
               title={"Best " + cat + " Movies"}
-              genreurl={[cat]}
+              genre={cat}
               key={index}
               handleBookmark={handleBookmark}
             />
           );
         })}
-        {/* <div className="w-full min-h-screen bg-slate-900">
-        {sectionTitles.map((title, index) => {
-          return <Section title={title} Movies={MoviesList} key={index} />;
-        })}
-      </div> */}
       </div>
-      <Footer />
     </>
   );
 };

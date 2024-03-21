@@ -1,63 +1,44 @@
-import React from "react";
-
 // imported media
-import image1 from "../assets/dropdown-movies.jpg";
+import image1 from "../../assets/dropdown-movies.jpg";
 
 const moviesCat = [
-  "Biography",
+  "Anime",
   "Action",
-  "Military",
   "Detectives",
-  "Family",
-  "Documentary",
-  "Historical",
+  "For Adults",
+  "For the Family",
+  "For Children",
   "Drama",
-  "Disaster",
+  "Story",
   "Comedy",
   "Criminal",
-  "Melodrama",
-  "Mystical",
-  "Comics",
+  "Musical",
+  "Full-Length",
   "Adventures",
-  "Romantic",
-  "TV Show",
+  "Series",
   "Sport",
-  "Thrillers",
+  "Thriller",
   "Horror",
   "Fantastic",
   "Fantasy",
 ];
 
-const moviesCountry = [
-  "Russian",
-  "American",
-  "British",
-  "Arabic",
-  "Turkish",
-  "Korean",
-];
+const moviesCountry = ["Russian", "Soviet", "American", "Foreign"];
 
 const moviesYears = [
-  "Series 2023",
-  "Series 2022",
-  "Series 2021",
-  "Series 2020",
+  "Cartoons 2023",
+  "Cartoons 2022",
+  "Cartoons 2021",
+  "Cartoons 2020",
   "Earlier",
 ];
 
-const moviesOptions = [
-  "New Items",
-  "IVI Rating",
-  "TV Series in HD",
-  "Free TV Series",
-];
+const moviesOptions = ["New Items", "Cartoons in HD"];
 
 const DropdownMovies = () => {
   return (
     <>
-      {/* <div className="dropdown-content fixed top-0 left-[5%] right-[5%] h-[60px] opacity-4
-      0 bg-slate-800 z-40"></div> */}
-      <div className="dropdown-content bg-slate-800 p-4 fixed top-[60px] left-[5%] right-[5%] overflow-hidden z-50 flex justify-between">
+      <div className="dropdown-content bg-slate-800 flex justify-between">
         {/* Dropdown Column */}
         <div className="py-4 px-[1rem] h-full shrink-0">
           <h3 className="text-xl text-slate-100">Genre</h3>
@@ -101,7 +82,6 @@ const DropdownMovies = () => {
         </div>
         {/* Dropdown Column */}
         <div className="py-4 px-[1rem] h-full">
-          {/* Watch options */}
           <ul className="list-items h-[50vh] border-l-[1px] font-light">
             {moviesOptions.map((option, index) => {
               return (

@@ -1,20 +1,15 @@
 import React, { useEffect, useState } from "react";
 // Imported Components
-import Navbar from "../components/Navbar";
 import Banner from "../components/Banner";
 import MoviesHome from "../components/MoviesHome";
 import Section from "../components/Section";
 import CarouselGenres from "../components/CarouselGenres";
-import Footer from "../components/Footer";
 // Imported Data
 import { MoviesList } from "../data/MoviesData";
 // Imported Media
 import BannerImg from "../assets/banner.jpg";
-import SectionAPI from "../components/SectionAPI";
-import { FaSketch } from "react-icons/fa";
-import { loadUser } from "../data/utils";
-import { fetchBookmark } from "../data/bookmarkFunctions";
 import { API_IMG_URL, fetchGenre, fetchTrending } from "../data/APIFunctions";
+import SectionAPI from "../components/SectionAPI";
 
 const genreMap = [
   {
@@ -168,11 +163,6 @@ const parseMovies = async (apiMovieList) => {
 };
 
 const MoviesPage = () => {
-  // Store fetched movie data
-  // initializing the state variable as an empty array
-  const [movies, setMovies] = useState([]);
-  // keep a track of the page numbers
-  const [page, setPage] = useState(1);
   // used to store the non-selected genre values
   const [genre, setGenre] = useState([]);
   // used to store the selected genre values
@@ -181,60 +171,31 @@ const MoviesPage = () => {
   const [genreURL, setGenreURL] = useState(useGenre(""));
   const [movieYear, setMovieYear] = useState(2023);
 
-  const [userName, setUserName] = useState("");
-  useEffect(() => {
-    let data = loadUser();
-    if (!!data) {
-      setUserName(data);
-    }
-  }, []);
-
-  // Function to fetch data from API
-  const handleTrending = async () => {
-    try {
-      let data = await fetchTrending(genreURL, page, movieYear);
-      let parsedMovies = await parseMovies(data);
-      setMovies(parsedMovies);
-    } catch (error) {
-      console.log("Error: Fetch API");
-    }
-  };
-
-  useEffect(() => {
-    handleTrending();
-  }, []);
-
   // TODO: handle dropdown
-  const handleMovieYear = async (year) => {};
+  const handleMovieYear = async (year) => {
+    setMovieYear(year);
+  };
   const handleMovieGenre = () => {};
   const handleMovieCountry = () => {};
   const handleMovieRating = () => {};
 
   //Adding a particular genre to the selected array
-  const CategoryAdd = async (genres) => {
-    const temp = async () => {
-      //first - select everything that's inside of values using the spread operator
-      //second - add those genres that are being sent from the non-selected arrays
-      setValue([...value, genres]);
-      //removing those genres from the non-selected array that have been added to the selected array.
-      setGenre(genre.filter((g) => g.id !== genres.id));
-      setGenreURL(useGenre([...value, genres]));
-      setPage(1);
-    };
-    await temp();
-    handleTrending();
+  const CategoryAdd = (genres) => {
+    //first - select everything that's inside of values using the spread operator
+    //second - add those genres that are being sent from the non-selected arrays
+    setValue([...value, genres]);
+    //removing those genres from the non-selected array that have been added to the selected array.
+    setGenre(genre.filter((g) => g.id !== genres.id));
+    setGenreURL(useGenre([...value, genres]));
+    setPage(1);
   };
 
   //removing a particular genre from the selected array
   const CategoryRemove = async (genres) => {
-    const temp = async () => {
-      setValue(value.filter((g) => g.id !== genres.id));
-      setGenre([...genre, genres]);
-      setGenreURL(useGenre(value.filter((g) => g.id !== genres.id)));
-      setPage(1);
-    };
-    await temp();
-    handleTrending();
+    setValue(value.filter((g) => g.id !== genres.id));
+    setGenre([...genre, genres]);
+    setGenreURL(useGenre(value.filter((g) => g.id !== genres.id)));
+    setPage(1);
   };
 
   // Get List of Genres from API and load to carousel
@@ -245,23 +206,13 @@ const MoviesPage = () => {
     } catch (error) {}
   };
 
-  // Handle add bookmark
-  const handleBookmark = async (movie) => {
-    await fetchBookmark({
-      type: "ADD_BOOKMARK",
-      userName: userName,
-      movie: movie,
-    });
-  };
-
   useEffect(() => {
     handleGenre();
   }, []);
 
   return (
-    <div className="bg-slate-900 pt-[80px]">
-      <Navbar />
-      <div className="lg:px-[5%] px-2 pb-5 overflow-hidden">
+    <div className="bg-slate-900">
+      <div className="lg:px-[5%] px-2 overflow-hidden">
         <Banner BannerImg={BannerImg} />
         <MoviesHome
           CategoryAdd={CategoryAdd}
@@ -274,34 +225,13 @@ const MoviesPage = () => {
           value={value}
         />
         {/* <SectionAPI page={1} title={"Trending"} genreurl={genreURL} /> */}
-        <Section
-          title="Trending"
-          Movies={movies}
-          handleBookmark={handleBookmark}
-        />
-        <Section
-          title="Film Premiers"
-          Movies={movies}
-          handleBookmark={handleBookmark}
-        />
+        <SectionAPI page={1} title={"Trending"} genreurl={genreURL} />
+        <SectionAPI page={2} title={"Film Premiers"} genreurl={genreURL} />
         <CarouselGenres />
-        <Section
-          title="Best Films"
-          Movies={movies}
-          handleBookmark={handleBookmark}
-        />
-        <Section
-          title="IVI's Choice"
-          Movies={movies}
-          handleBookmark={handleBookmark}
-        />
-        <Section
-          title="Movies in 4K UHD"
-          Movies={movies}
-          handleBookmark={handleBookmark}
-        />
+        <SectionAPI page={3} title={"Best Films"} genreurl={genreURL} />
+        <SectionAPI page={4} title={"IVI's Choice"} genreurl={genreURL} />
+        <SectionAPI page={5} title={"Movies in 4K UHD"} genreurl={genreURL} />
       </div>
-      <Footer />
     </div>
   );
 };

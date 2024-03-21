@@ -1,12 +1,11 @@
-import React from "react";
 import { Link } from "react-router-dom";
 // Imported Media
-import logo from "../assets/logo.svg";
-import familyimg from "../assets/family.png";
-import qualityimg from "../assets/maxquality.png";
-import offlineimg from "../assets/viewoffline.png";
-import noadsimg from "../assets/noads.png";
-import newmoviesimg from "../assets/newmovies.png";
+import logo from "../../assets/logo.svg";
+import familyimg from "../../assets/family.png";
+import qualityimg from "../../assets/maxquality.png";
+import offlineimg from "../../assets/viewoffline.png";
+import noadsimg from "../../assets/noads.png";
+import newmoviesimg from "../../assets/newmovies.png";
 // Imported Icons
 import { FaArrowLeft } from "react-icons/fa";
 

@@ -1,4 +1,3 @@
-import React from "react";
 // Imported Icons
 import { FaRegBookmark } from "react-icons/fa";
 import { BsCollectionPlayFill } from "react-icons/bs";
@@ -7,7 +6,6 @@ import { IoDiamondOutline } from "react-icons/io5";
 import { TbCertificate2 } from "react-icons/tb";
 import { TbMessage2Code } from "react-icons/tb";
 import { MdOutlinePayments } from "react-icons/md";
-import { removeUser } from "../data/utils";
 
 const DropdownSignin = ({ userName, handleSignOut }) => {
   return (
@@ -52,7 +50,6 @@ const DropdownSignin = ({ userName, handleSignOut }) => {
             Signout
           </div>
         )}
-
         <div className="text-left">
           <p>Settings</p>
           <p>Help</p>

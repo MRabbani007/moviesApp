@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 // Imported Media
 // import image2 from "./assets/image2.jpg";
 // Imported Icons
@@ -7,9 +7,14 @@ import { FaRegStar } from "react-icons/fa";
 import { SlActionRedo } from "react-icons/sl";
 import { FaRegEyeSlash } from "react-icons/fa";
 import { FaRegBookmark } from "react-icons/fa6";
+import { GlobalContext } from "../context/GlobalState";
 
-const MoviePortrait = ({ movie, handleBookmark }) => {
+const MoviePortrait = ({ movie }) => {
+  const { handleBookmarkAdd } = useContext(GlobalContext);
+  const [bookmark, setBookmark] = useState(false);
+
   let { id, name, category, rating, image, year, time } = movie;
+
   return (
     <div className="w-[180px] h-fit " key={id}>
       <div className="imgDiv w-full h-[250px] mx-auto rounded-lg overflow-hidden relative">
@@ -19,7 +24,7 @@ const MoviePortrait = ({ movie, handleBookmark }) => {
             className="icon cursor-pointer"
             title="Watch Later"
             onClick={() => {
-              handleBookmark(movie);
+              handleBookmarkAdd(movie);
             }}
           />
           <SlActionRedo

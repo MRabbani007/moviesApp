@@ -74,7 +74,7 @@ export const UserProvider = ({ children }) => {
       });
     };
     if (auth?.user && auth?.roles) {
-      fetchUser();
+      // fetchUser();
     }
   }, [auth?.user]);
 

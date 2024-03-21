@@ -1,5 +1,3 @@
-import React from "react";
-
 const DropdownMenu = ({ items, handledropdown }) => {
   return (
     <ul className="dropdown-menu-content bg-slate-700">
